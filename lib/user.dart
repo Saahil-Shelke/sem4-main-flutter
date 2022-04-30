@@ -11,5 +11,6 @@ import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 
 class User {
-  static String username = " A123";
+  static String username = "A123";
+  // static String id = "A123";
 }

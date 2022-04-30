@@ -126,6 +126,10 @@ meta
 2.12
 file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0/
 file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0/lib/
+month_year_picker
+2.12
+file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/month_year_picker-0.1.0+1/
+file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/month_year_picker-0.1.0+1/lib/
 nested
 2.12
 file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/nested-1.0.0/
@@ -246,6 +250,10 @@ flutter
 2.12
 file:///D:/flutter/packages/flutter/
 file:///D:/flutter/packages/flutter/lib/
+flutter_localizations
+2.12
+file:///D:/flutter/packages/flutter_localizations/
+file:///D:/flutter/packages/flutter_localizations/lib/
 flutter_test
 2.12
 file:///D:/flutter/packages/flutter_test/

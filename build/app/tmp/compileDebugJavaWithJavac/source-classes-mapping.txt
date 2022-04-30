@@ -1,0 +1,6 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/example/attendance_system/BuildConfig.java
+ com.example.attendance_system.BuildConfig
+com/example/attendance_system/MainActivity.java
+ com.example.attendance_system.MainActivity

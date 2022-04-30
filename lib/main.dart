@@ -2,7 +2,6 @@ import 'package:attendance_system/homeScreen.dart';
 import 'package:attendance_system/loginscreenmanager.dart';
 import 'package:attendance_system/role.dart';
 import 'package:attendance_system/signUp.dart';
-import 'package:attendance_system/temp.dart';
 import 'package:attendance_system/todayscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -53,10 +52,10 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        // home : const KeyboardVisibilityProvider (
-        //  child : LoginScreenEmployee(),
-        //     ),`````````````````
-         home : HomeScreen(),
+        home : const KeyboardVisibilityProvider (
+         child : LoginScreenEmployee(),
+            ),
+         // home : HomeScreen(),
     );
   }
 }

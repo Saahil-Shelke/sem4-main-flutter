@@ -177,6 +177,13 @@
             </list>
           </value>
         </entry>
+        <entry key="flutter_localizations">
+          <value>
+            <list>
+              <option value="D:/flutter/packages/flutter_localizations/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter_test">
           <value>
             <list>
@@ -244,6 +251,13 @@
           <value>
             <list>
               <option value="D:/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="month_year_picker">
+          <value>
+            <list>
+              <option value="D:/flutter/.pub-cache/hosted/pub.dartlang.org/month_year_picker-0.1.0+1/lib" />
             </list>
           </value>
         </entry>
@@ -485,6 +499,7 @@
       <root url="file://D:/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.11/lib" />
       <root url="file://D:/flutter/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.3/lib" />
       <root url="file://D:/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0/lib" />
+      <root url="file://D:/flutter/.pub-cache/hosted/pub.dartlang.org/month_year_picker-0.1.0+1/lib" />
       <root url="file://D:/flutter/.pub-cache/hosted/pub.dartlang.org/nested-1.0.0/lib" />
       <root url="file://D:/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0/lib" />
       <root url="file://D:/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.5/lib" />
@@ -515,6 +530,7 @@
       <root url="file://D:/flutter/.pub-cache/hosted/pub.dartlang.org/xdg_directories-0.2.0+1/lib" />
       <root url="file://D:/flutter/bin/cache/pkg/sky_engine/lib" />
       <root url="file://D:/flutter/packages/flutter/lib" />
+      <root url="file://D:/flutter/packages/flutter_localizations/lib" />
       <root url="file://D:/flutter/packages/flutter_test/lib" />
       <root url="file://D:/flutter/packages/flutter_web_plugins/lib" />
     </CLASSES>

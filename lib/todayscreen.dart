@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:attendance_system/temp2.dart';
 import 'package:attendance_system/todayscreen.dart';
 import 'package:attendance_system/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -87,13 +85,13 @@ class _TodayScreenState extends State<TodayScreen> {
                 style: TextStyle(
                   color : Colors.black54,
                   fontFamily: "IBMPlexSans-Regular",
-                  fontSize: screenWidth/26,
+                  fontSize: screenWidth/18,
                 ),
               ),
             ),
             Container (
               alignment : Alignment.centerLeft,
-              margin: const EdgeInsets.only(top : 32),
+              margin: const EdgeInsets.only(top : 25),
               child: Text (
                 "Employee" + User.username,
                 style: TextStyle(
@@ -182,6 +180,29 @@ class _TodayScreenState extends State<TodayScreen> {
                 ],
               ),
             ),
+            Container (
+                alignment: Alignment.centerLeft,
+                child: RichText(
+                  text: TextSpan(
+                      text: DateTime.now().day.toString(),
+                      style: TextStyle(
+                        color: primary,
+                        fontSize: screenWidth / 18,
+                        fontFamily: "IBMPlexSans-Bold",
+                      ),
+                      children: [
+                        TextSpan(
+                            text: DateFormat(' MMMM yyyy').format(DateTime.now()),
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: screenWidth / 20,
+                              fontFamily: "IBMPlexSans-Bold",
+                            )
+                        )
+                      ]
+                  ),
+                )
+            ),
             StreamBuilder(
                 stream: Stream.periodic(const Duration(seconds: 1)),
               builder: (context,snapshot) {
@@ -198,99 +219,7 @@ class _TodayScreenState extends State<TodayScreen> {
               );
               }
               ),
-            Container (
-              alignment: Alignment.centerLeft,
-    child: RichText(
-    text: TextSpan(
-    text: DateTime.now().day.toString(),
-    style: TextStyle(
-    color: primary,
-    fontSize: screenWidth / 18,
-    fontFamily: "IBMPlexSans-Bold",
-    ),
-    children: [
-    TextSpan(
-    text: DateFormat(' MMMM yyyy').format(DateTime.now()),
-    style: TextStyle(
-    color: Colors.black,
-    fontSize: screenWidth / 20,
-    fontFamily: "IBMPlexSans-Bold",
-    )
-    )
-    ]
-    ),
-    )
-    ),
-    // GestureDetector(
-    // onTap: () async {
-    //   print(DateFormat('hh:mm').format(DateTime.now()));
-    //
-    //   QuerySnapshot snap = await FirebaseFirestore.instance
-    //       .collection("Employee")
-    //       .where('id', isEqualTo: User.username)
-    //       .get();
-    //
-    //   print(snap.docs[0].id);
-    //   print(DateFormat('dd MMMM yyyy').format (DateTime.now()));
-    //
-    //   DocumentSnapshot snap2 = await FirebaseFirestore.instance
-    //       .collection("Employee")
-    //       .doc (snap.docs[0].id)
-    //       .collection("Record")
-    //       .doc (DateFormat('dd MMMM yyyy').format(DateTime.now()))
-    //       .get();
-    //
-    //
-    //
-    //   try {
-    //     String checkIn = snap2['checkIn'];
-    //     await FirebaseFirestore.instance
-    //         .collection("Employee")
-    //         .doc (snap.docs[0].id)
-    //         .collection("Record")
-    //         .doc (DateFormat('dd MMMM yyyy').format (DateTime.now()))
-    //         .update({
-    //       'checkIn' : checkIn,
-    //       'checkOut': DateFormat('hh:mm').format(
-    //           DateTime.now()),
-    //     });
-    //   } catch (e) {
-    //     await FirebaseFirestore.instance
-    //         .collection("Employee")
-    //         .doc (snap.docs[0].id)
-    //         .collection("Record")
-    //         .doc (DateFormat('dd MMMM yyyy').format (DateTime.now()))
-    //         .set({
-    //       'checkIn': DateFormat('hh:mm').format (DateTime.now()),
-    //     });
-    //   }
-    // }
 
-      // child: Container(
-      // height: 60,
-      // width: screenWidth,
-      // margin: EdgeInsets.only(
-      //     top: screenHeight / 40, bottom: screenHeight / 40),
-      // decoration: BoxDecoration(
-      //   color: primary,
-      //   borderRadius: const BorderRadius.all(Radius.circular(30)),
-      // ),
-      // // child: GestureDetector(
-      // //   onTap : () {
-      // //     Navigator.push(context,MaterialPageRoute(
-      // //         builder: (context) => SignUp()));
-      // //   },
-      // child : Center(
-      //   child: Text(
-      //     "LOGIN",
-      //     style: TextStyle(
-      //       fontFamily: "IBMPlexSens-Bold",
-      //       fontSize: screenWidth / 26,
-      //       color: Colors.white,
-      //       letterSpacing: 1.8,
-      //     ),
-      //   ),
-      // ),
 
             checkOut == "--/--" ? Container(
               margin: const EdgeInsets.only(top: 20),
@@ -306,15 +235,16 @@ class _TodayScreenState extends State<TodayScreen> {
                       fontFamily: "IBMPlexSens-Regular",
                     ),
                     outerColor: Colors.white,
+
                     innerColor: primary,
                     key: key,
                     onSubmit: () async {
+                      // Future.delayed(Duration(milliseconds: 500), () {
+                      //   key.currentState!.reset();
+                      // });
                       Timer(Duration(seconds : 1), () {
                         key.currentState!.reset();
                       });
-                      // Reg x = Reg("Ronak","11.34" );
-                      // x.addUser(context);
-                      // String id = idCon.text.trim();
                       print(DateFormat('hh:mm').format(DateTime.now()));
 
                       QuerySnapshot snap = await FirebaseFirestore.instance
@@ -359,6 +289,7 @@ class _TodayScreenState extends State<TodayScreen> {
                             .doc(DateFormat('dd MMMM yyyy').format(DateTime.now()))
                             .set({
                           'checkIn': DateFormat('hh:mm').format(DateTime.now()),
+                          'checkOut' : "--/--",
                         });
                       }
                     },

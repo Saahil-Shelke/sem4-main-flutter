@@ -1,4 +1,5 @@
 import 'package:attendance_system/todayscreen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:attendance_system/loginscreenmanager.dart';
 import 'main.dart';
@@ -6,6 +7,8 @@ import 'package:attendance_system/signUp.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:attendance_system/signUp.dart';
+import 'package:attendance_system/user.dart';
+import 'package:attendance_system/calendarscreen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -20,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   double screenWidth = 0;
 
   Color primary = const Color(0xffeef444c);
-
+  String id = '';
   int currentIndex = 1;
 
   List<IconData> navigationIcons = [
@@ -28,6 +31,26 @@ class _HomeScreenState extends State<HomeScreen> {
     FontAwesomeIcons.check,
     FontAwesomeIcons.userAlt,
   ];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    getId();
+  }
+
+  void getId() async {
+    QuerySnapshot snap = await FirebaseFirestore.instance.
+    collection("Employee")
+        .where('id', isEqualTo: User.username)
+        .get();
+
+    setState(() {
+        User.username = snap.docs[0].id;
+  });
+
+}
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +62,8 @@ class _HomeScreenState extends State<HomeScreen> {
         body: IndexedStack (
           index: currentIndex,
           children: [
-            TodayScreen(),
+            new calendarScreen(),
+            new TodayScreen(),
           ],
         ),
       bottomNavigationBar: Container(
